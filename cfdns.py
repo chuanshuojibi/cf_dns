@@ -5,12 +5,14 @@ import os
 import json
 
 # API 密钥
-CF_API_TOKEN = 'qp_zOBcqmZd5fv0zIH8VU8d0-8ts3AESzEIwYeRV'
-CF_ZONE_ID = '8d061d5b00b29c4ce9a053131f746339'
-CF_DNS_NAME = 'dns.187088.xyz'
+CF_API_TOKEN    =   os.environ["CF_API_TOKEN"]
+CF_ZONE_ID      =   os.environ["CF_ZONE_ID"]
+CF_DNS_NAME     =   os.environ["CF_DNS_NAME"]
 
 # pushplus_token
-PUSHPLUS_TOKEN = '826b2691c4ef412a9976df5e045bc8ec'
+PUSHPLUS_TOKEN  =   os.environ["PUSHPLUS_TOKEN"]
+
+
 
 headers = {
     'Authorization': f'Bearer {CF_API_TOKEN}',
