@@ -16,4 +16,4 @@ jobs:
       with:
         python-version: 3.7 # 选择你需要的Python版本
     - name: Execute Python script
-      run: python dnscf.py # 执行你的Python脚本
+      run: python cfdns.py # 执行你的Python脚本
