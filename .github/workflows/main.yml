@@ -16,7 +16,5 @@ jobs:
       with:
         python-version: 3.7 # 选择你需要的Python版本
     - name: Install dependencies
-      run: |
-        pip install -r requirements.txt # 如果你的脚本有依赖项，安装它们
     - name: Execute Python script
       run: python script.py # 执行你的Python脚本
