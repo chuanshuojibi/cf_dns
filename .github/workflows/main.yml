@@ -18,4 +18,9 @@ jobs:
     - name: 'Install dependencies'
       run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Execute Python script
+      env:
+        CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+        CF_DNS_NAME: ${{ secrets.CF_DNS_NAME }}
+        PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
       run: python cfdns.py # 执行你的Python脚本
