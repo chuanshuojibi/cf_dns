@@ -15,6 +15,5 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.7 # 选择你需要的Python版本
-    - name: Install dependencies
     - name: Execute Python script
       run: python script.py # 执行你的Python脚本
