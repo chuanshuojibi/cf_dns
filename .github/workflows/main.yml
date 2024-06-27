@@ -1,0 +1,21 @@
+name: Daily Python Script Execution
+
+on:
+  schedule:
+    - cron: '0 0,8,16 * * *'
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest # 使用Ubuntu最新版本的虚拟环境
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2 # 检出代码
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10 # 选择你需要的Python版本
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt # 如果你的脚本有依赖项，安装它们
+    - name: Execute Python script
+      run: python script.py # 执行你的Python脚本
