@@ -1,0 +1,26 @@
+name: Daily Python Script Execution
+
+on:
+  schedule:
+    - cron: '0 0,8,16 * * *'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  run-python-script:
+    runs-on: ubuntu-latest # 使用Ubuntu最新版本的虚拟环境
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2 # 检出代码
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7 # 选择你需要的Python版本
+    - name: 'Install dependencies'
+      run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: push_cf
+      env:
+        CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+        CF_DNS_NAME: ${{ secrets.CF_DNS_NAME }}
+        PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+      run: python cfdns.py # 执行你的Python脚本
