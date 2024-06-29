@@ -17,7 +17,7 @@ jobs:
         python-version: 3.7 # 选择你需要的Python版本
     - name: 'Install dependencies'
       run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Execute Python script
+    - name: push_cf
       env:
         CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
         CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
