@@ -2,7 +2,7 @@ name: Daily Python Script Execution
 
 on:
   schedule:
-    - cron: '0 0,8,16 * * *'
+    - cron: '0 */4 * * *'
   workflow_dispatch:  # 允许手动触发
 
 jobs:
